@@ -1,0 +1,41 @@
+#+TITLE: formula-errors
+
+Error system for formula-* libraries.
+
+#+BEGIN_SRC sh :exports none
+  babel index.es6 -m umd --out-file index.js
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC web :tangle index.es6
+  // Define the error system
+
+  let FormulaErrors;
+
+  function FormulaError(message) {
+    this.message = message;
+  }
+
+  FormulaError.prototype = new Error; 
+
+  FormulaError.prototype.toString = function() {
+    return this.message;
+  }
+
+
+  export default FormulaErrors = {
+    nil: new FormulaError('#NULL!'),
+    div0: new FormulaError('#DIV/0!'),
+    value: new FormulaError('#VALUE?'),
+    ref: new FormulaError('#REF!'),
+    name: new FormulaError('#NAME?'),
+    num: new FormulaError('#NUM!'),
+    na: new FormulaError('#N/A'),
+    error: new FormulaError('#ERROR!'),
+    data: new FormulaError('#GETTING_DATA'),
+    missing: new FormulaError('#MISSING'),
+    unknown: new FormulaError('#UNKNOWN')
+  }
+
+#+END_SRC

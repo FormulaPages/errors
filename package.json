@@ -1,8 +1,8 @@
 {
   "name": "formula-errors",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An error system for formula-* functions",
-  "main": "index.js",
+  "main": "error.js",
   "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "build": "babel error.es6 -m umd --out-file error.js"
